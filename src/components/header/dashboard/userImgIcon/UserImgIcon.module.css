@@ -1,0 +1,9 @@
+.imageCont {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.image {
+  border-radius: 100%;
+}

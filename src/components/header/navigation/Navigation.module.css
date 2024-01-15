@@ -1,0 +1,40 @@
+.nav {
+  display: none;
+}
+
+.list {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.listItem {
+  color: var(--main-color);
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid transparent;
+  transition: var(--transition);
+}
+
+.active {
+  color: var(--secondary-color);
+  border-bottom: 2px solid var(--secondary-color);
+}
+
+@media screen and (min-width: 425px) {
+  .nav {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media screen and (min-width: 768px) {
+  .list {
+    gap: 30px;
+  }
+}

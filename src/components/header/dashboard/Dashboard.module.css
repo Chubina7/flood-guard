@@ -1,0 +1,22 @@
+.wrapper {
+  color: var(--main-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.wrapper:hover {
+  color: var(--secondary-color);
+}
+
+.loginStatus {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .loginStatus {
+    display: flex;
+  }
+}
