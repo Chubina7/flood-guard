@@ -11,6 +11,7 @@
 }
 
 .listItem {
+  opacity: 60%;
   color: var(--main-color);
   height: 100%;
   display: flex;
@@ -21,8 +22,9 @@
 }
 
 .active {
-  color: var(--secondary-color);
-  border-bottom: 2px solid var(--secondary-color);
+  opacity: 100%;
+  color: var(--main-color);
+  border-bottom: 2px solid var(--main-color);
 }
 
 @media screen and (min-width: 425px) {

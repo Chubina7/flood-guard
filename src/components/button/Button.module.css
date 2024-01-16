@@ -1,0 +1,18 @@
+.btn {
+  border: none;
+  color: white;
+  background-color: var(--main-color);
+  padding: 10px 15px;
+  font-family: inherit;
+  border-radius: 50px;
+  transition: var(--transition);
+}
+.btn:hover {
+  background-color: var(--secondary-color);
+}
+
+@media screen and (min-width: 425px) {
+  .btn {
+    padding: 20px 30px;
+  }
+}

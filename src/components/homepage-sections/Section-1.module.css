@@ -1,0 +1,56 @@
+.startingPage {
+  position: relative;
+  padding-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.textArea {
+  z-index: 99;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  flex: 0.5;
+}
+.title {
+  text-align: center;
+  font-size: 44px;
+  font-weight: normal;
+}
+
+.heroimage {
+  object-fit: contain;
+}
+
+
+@media screen and (min-width: 425px) {
+  .title {
+    font-size: 64px;
+    text-wrap: nowrap;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .startingPage {
+    height: 650px;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+  .heroImage {
+    position: absolute;
+    right: -110px;
+    width: 600px;
+    height: 500px;
+    object-fit: contain;
+  }
+  .title {
+    font-size: 72px;
+  }
+}

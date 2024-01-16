@@ -1,7 +1,7 @@
 :root {
-  --main-color: rgb(9, 171, 171);
-  --secondary-color: green;
-  --max-width: 1440px;
+  --main-color: rgba(0, 73, 175, 255);
+  --secondary-color: rgba(74, 125, 193, 172);
+  --max-width: 1180px;
   --padding: 0 15px;
   --transition: 0.2s ease-in-out;
 }
@@ -12,7 +12,7 @@
 }
 
 html {
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 body {
