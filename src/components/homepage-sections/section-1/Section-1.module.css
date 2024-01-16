@@ -1,7 +1,18 @@
-.startingPage {
+.section {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.wrapper {
   position: relative;
   padding-top: 20px;
   width: 100%;
+  max-width: var(--max-width);
+  padding: var(--padding);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -29,7 +40,6 @@
   object-fit: contain;
 }
 
-
 @media screen and (min-width: 425px) {
   .title {
     font-size: 64px;
@@ -38,8 +48,8 @@
 }
 
 @media screen and (min-width: 768px) {
-  .startingPage {
-    height: 650px;
+  .wrapper {
+    height: 680px;
     justify-content: space-between;
     flex-direction: row;
   }
