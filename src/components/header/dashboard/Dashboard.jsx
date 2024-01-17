@@ -8,7 +8,7 @@ export default function Dashboard() {
   return (
     <div className={styles.wrapper}>
       <UserImgIcon img={userImg} />
-      <p className={styles.loginStatus}>Login</p>
+      <p className={styles.loginStatus}>შესვლა</p>
     </div>
   );
 }

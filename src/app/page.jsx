@@ -6,6 +6,12 @@ import Section3 from "@/components/homepage-sections/section-3/Section-3";
 import Section4 from "@/components/homepage-sections/section-4/Section-4";
 
 export default function Home() {
+  // const handleToAboutScroll = () => {
+  //   aboutRef.current?.scrollIntoView({
+  //     behavior: "smooth",
+  //   });
+  // };
+
   return (
     <main className={styles.main}>
       <Section1 />

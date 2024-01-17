@@ -3,12 +3,12 @@ import styles from "./Section-2.module.css";
 import Image from "next/image";
 import Logo from "/public/images/Logo.png";
 
-export default function Section2() {
+export default function Section2({ aboutRef }) {
   return (
-    <section className={styles.section}>
+    <section className={styles.section} ref={aboutRef}>
       <div className={styles.wrapper}>
         <div className={styles.imgBg}>
-          <Image src={Logo} className={styles.img} />
+          <Image src={Logo} className={styles.img} alt="company-logo" />
         </div>
         <div className={styles.text}>
           <h1>Who are we</h1>
@@ -21,7 +21,6 @@ export default function Section2() {
             Nesciunt vel autem id fugit distinctio in excepturi.
           </p>
         </div>
-        {/* <p>ლოგო, მინი ინფო და საკონტაქტო</p> */}
       </div>
     </section>
   );

@@ -1,11 +1,11 @@
-import { Montserrat } from 'next/font/google'
+import { Noto_Sans_Georgian } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/header/Header'
 import Footer from '@/components/footer/Footer'
 
-const montserrat = Montserrat(
+const notoSansGeorgian = Noto_Sans_Georgian(
   {
-    subsets: ['latin']
+    subsets: ['georgian', 'latin', 'latin-ext']
   }
 )
 
@@ -17,10 +17,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={montserrat.className}>
+      <body className={notoSansGeorgian.className}>
         <Header />
         {children}
-        <Footer />
+        {/* <Footer /> */}
       </body>
     </html>
   )
