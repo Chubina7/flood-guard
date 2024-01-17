@@ -25,15 +25,15 @@
   height: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: column;
   gap: 20px;
   flex: 0.5;
 }
 .title {
-  text-align: center;
   font-size: 44px;
   font-weight: normal;
+  text-align: left;
 }
 
 .heroimage {
@@ -43,7 +43,6 @@
 @media screen and (min-width: 425px) {
   .title {
     font-size: 64px;
-    text-wrap: nowrap;
   }
 }
 

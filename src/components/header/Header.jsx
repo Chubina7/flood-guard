@@ -11,13 +11,14 @@ export default function Header() {
     <header className={styles.header}>
       <div className={styles.wrapper}>
         <Link href={"/"} className={styles.logoCont}>
-          <Image
+          {/* <Image
             src={Logo}
             width={60}
             height={50}
             alt="logo-icon"
             className={styles.logo}
-          />
+          /> */}
+          <h1 className={styles.heading}>FloodGuard</h1>
         </Link>
         <Navigation />
         <Dashboard />

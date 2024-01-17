@@ -28,3 +28,8 @@
 .logo {
   object-fit: contain;
 }
+
+
+.heading {
+  color: var(--main-color);
+}

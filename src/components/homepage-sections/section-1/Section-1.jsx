@@ -9,8 +9,8 @@ export default function Section1() {
     <section className={styles.section}>
       <div className={styles.wrapper}>
         <div className={styles.textArea}>
-          <h1 className={styles.title}>Flood Guard</h1>
-          <p>Smart solutions for safety</p>
+          <h1 className={styles.title}>Smart solutions for safety</h1>
+          {/* <p>Smart solutions for safety</p> */}
           <Button title={"Get Started"} href={"/"} />
         </div>
         <Image

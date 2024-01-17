@@ -8,7 +8,9 @@ import { usePathname } from "next/navigation";
 const navRoutes = [
   { id: 0, title: "Home", href: "/" },
   { id: 1, title: "Services", href: "/services" },
-  { id: 2, title: "About us", href: "/about-us" },
+  { id: 2, title: "Watch Now", href: "/watch-now" },
+  { id: 3, title: "About Us", href: "/about-us" },
+  { id: 4, title: "Guide", href: "/guide" },
 ];
 
 export default function Navigation() {
