@@ -6,9 +6,9 @@ import AboutUs from "@/components/homepage-sections/about_us/AboutUs";
 export default function Home() {
   return (
     <main className={styles.main}>
-      <GetStarted />
-      <AboutUs />
-      <Services />
+      <GetStarted id="getStarted" />
+      <AboutUs id="aboutUs" />
+      <Services id="services" />
     </main>
   );
 }

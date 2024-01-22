@@ -3,9 +3,9 @@ import styles from "./AboutUs.module.css";
 import Image from "next/image";
 import Logo from "/public/images/Logo.png";
 
-export default function AboutUs() {
+export default function AboutUs({ id }) {
   return (
-    <section className={styles.section}>
+    <section className={styles.section} id={id}>
       <div className={styles.wrapper}>
         <h1>ვინ ვართ ჩვენ</h1>
         <div className={styles.imgBg}>

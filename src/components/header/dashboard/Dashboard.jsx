@@ -1,5 +1,6 @@
 "use client";
 
+import { Link as ReactLink, animateScroll as scroll } from "react-scroll";
 import React, { useEffect, useState } from "react";
 import styles from "./Dashboard.module.css";
 import UserImgIcon from "./userImgIcon/UserImgIcon";
@@ -9,11 +10,11 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 
 const navRoutes = [
-  { id: 0, title: "მთავარი", href: "/" },
-  { id: 1, title: "სერვისები", href: "/services" },
-  { id: 2, title: "ადევნე თვალი", href: "/watch-now" },
-  { id: 3, title: "შესახებ", href: "/about-us" },
-  { id: 4, title: "გზამკვლევი", href: "/guide" },
+  { id: 0, title: "მთავარი", to: "getStarted" },
+  { id: 1, title: "შესახებ", to: "aboutUs" },
+  { id: 2, title: "სერვისები", to: "services" },
+  // { id: 2, title: "ადევნე თვალი", to: "" },
+  // { id: 4, title: "გზამკვლევი", to: "" },
 ];
 
 export default function Dashboard() {
@@ -27,7 +28,7 @@ export default function Dashboard() {
   useEffect(() => {
     setNavbarActive(false);
   }, [pathName]);
-  
+
   return (
     <>
       <div className={styles.wrapper}>
@@ -52,18 +53,21 @@ export default function Dashboard() {
               }}
             />
             <ul className={styles.popUpMenu}>
-              {navRoutes.map((route) => {
+              {navRoutes.map((item) => {
                 return (
-                  <li
-                    key={route.id}
-                    className={
-                      pathName == route.href
-                        ? `${styles.active} ${styles.listItem}`
-                        : styles.listItem
-                    }
+                  <ReactLink
+                    activeClass={styles.listItem_active}
+                    spy={true}
+                    to={item.to}
+                    smooth={true}
+                    offset={-60}
+                    duration={500}
+                    onClick={sideBarHandler}
                   >
-                    {route.title}
-                  </li>
+                    <li key={item.id} className={styles.listItem}>
+                      {item.title}
+                    </li>
+                  </ReactLink>
                 );
               })}
             </ul>

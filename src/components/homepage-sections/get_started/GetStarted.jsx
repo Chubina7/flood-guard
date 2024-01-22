@@ -4,9 +4,9 @@ import Image from "next/image";
 import Hero from "/public/images/hero.png";
 import Button from "../../button/Button";
 
-export default function GetStarted({ onClick }) {
+export default function GetStarted({ onClick, id }) {
   return (
-    <section className={styles.section}>
+    <section className={styles.section} id={id}>
       <div className={styles.wrapper}>
         <div className={styles.textArea}>
           <h1 className={styles.title}>უსაფრთხოების ჭკვიანი გადაწყვეტა</h1>

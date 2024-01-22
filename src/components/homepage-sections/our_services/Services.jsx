@@ -2,9 +2,9 @@ import React from "react";
 import styles from "./Services.module.css";
 import Card from "./card/Card";
 
-export default function Services() {
+export default function Services({ id }) {
   return (
-    <section className={styles.section}>
+    <section className={styles.section} id={id}>
       <div className={styles.wrapper}>
         <h1 className={styles.heading}>აირჩიე</h1>
         <p className={styles.description}>რეგულარული ან პრემიუმი</p>

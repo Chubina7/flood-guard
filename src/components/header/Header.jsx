@@ -3,7 +3,6 @@ import styles from "./Header.module.css";
 import Image from "next/image";
 import Logo from "/public/images/Logo.png";
 import Dashboard from "./dashboard/Dashboard";
-import Navigation from "./navigation/Navigation";
 import Link from "next/link";
 
 export default function Header() {
@@ -20,7 +19,6 @@ export default function Header() {
           /> */}
           <h1 className={styles.heading}>FloodGuard</h1>
         </Link>
-        <Navigation />
         <Dashboard />
       </div>
     </header>
