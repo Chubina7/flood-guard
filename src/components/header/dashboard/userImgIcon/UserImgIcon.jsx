@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function UserImgIcon({ img }) {
   return (
     <div className={styles.imageCont}>
-      <Image src={img} width={40} height={40} className={styles.image} />
+      <Image src={img} width={40} height={40} className={styles.image} alt="user-profile-icon" />
     </div>
   );
 }

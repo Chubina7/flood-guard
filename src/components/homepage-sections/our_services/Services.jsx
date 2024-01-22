@@ -6,8 +6,8 @@ export default function Services() {
   return (
     <section className={styles.section}>
       <div className={styles.wrapper}>
-        <h1 className={styles.heading}>ჩვენ გთავაზობთ ორი სახის გამოწერას</h1>
-        <p className={styles.description}>რეგულარული და პრემიუმი</p>
+        <h1 className={styles.heading}>აირჩიე</h1>
+        <p className={styles.description}>რეგულარული ან პრემიუმი</p>
         <div className={styles.cards}>
           <Card
             name={"რეგულარული"}

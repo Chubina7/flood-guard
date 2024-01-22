@@ -11,7 +11,7 @@
   padding-top: 20px;
   width: 100%;
   max-width: var(--max-width);
-  padding: var(--padding);
+  padding: 20px 15px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,22 +20,24 @@
 
 .cards {
   width: 100%;
-  padding: 20px 0;
   display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .heading {
+  width: 100%;
   color: white;
-  font-size: 46px;
-  padding-top: 50px;
   padding-bottom: 10px;
-  max-width: 90%;
   text-align: center;
+  text-wrap: nowrap;
+  font-size: 32px;
 }
 .description {
+  width: 100%;
+  text-align: center;
   padding-bottom: 30px;
   color: white;
-  font-size: 24px;
 }

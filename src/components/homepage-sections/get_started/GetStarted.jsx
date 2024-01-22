@@ -10,15 +10,16 @@ export default function GetStarted({ onClick }) {
       <div className={styles.wrapper}>
         <div className={styles.textArea}>
           <h1 className={styles.title}>უსაფრთხოების ჭკვიანი გადაწყვეტა</h1>
-          {/* <p>Smart solutions for safety</p> */}
           <Button title={"Get Started"} href={"/"} onClick={onClick} />
         </div>
-        <Image
-          src={Hero}
-          width={500}
-          height={300}
-          className={styles.heroImage}
-        />
+        <div className={styles.imgBg}>
+          <Image
+            src={Hero}
+            width={250}
+            className={styles.heroImage}
+            alt="hero-image"
+          />
+        </div>
       </div>
     </section>
   );

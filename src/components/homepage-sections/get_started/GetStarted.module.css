@@ -17,7 +17,8 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 50px;
+  gap: 20px;
+  padding-bottom: 70px;
 }
 
 .textArea {
@@ -28,38 +29,25 @@
   align-items: flex-start;
   flex-direction: column;
   gap: 20px;
-  flex: 0.5;
 }
 .title {
-  font-size: 44px;
-  font-weight: normal;
+  width: 100%;
+  font-size: 28px;
   text-align: left;
 }
 
+.imgBg {
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: -50px;
+  bottom: -10px;
+  filter: blur(0.7px);
+}
 .heroimage {
-  object-fit: contain;
-}
-
-@media screen and (min-width: 425px) {
-  .title {
-    font-size: 64px;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .wrapper {
-    height: 680px;
-    justify-content: space-between;
-    flex-direction: row;
-  }
-  .heroImage {
-    position: absolute;
-    right: -110px;
-    width: 600px;
-    height: 500px;
-    object-fit: contain;
-  }
-  .title {
-    font-size: 72px;
-  }
+  object-fit: cover;
+  height: 200px;
+  width: 200px;
 }
