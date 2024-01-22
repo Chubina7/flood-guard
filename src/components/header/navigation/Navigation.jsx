@@ -29,7 +29,7 @@ export default function Navigation() {
                   : styles.listItem
               }
             >
-              <Link href={item.href}>{item.title}</Link>
+              <Link href={"/"}>{item.title}</Link>
             </li>
           );
         })}

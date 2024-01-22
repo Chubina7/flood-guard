@@ -1,10 +1,10 @@
 import React from "react";
-import styles from "./Section-1.module.css";
+import styles from "./GetStarted.module.css";
 import Image from "next/image";
 import Hero from "/public/images/hero.png";
 import Button from "../../button/Button";
 
-export default function Section1({ onClick }) {
+export default function GetStarted({ onClick }) {
   return (
     <section className={styles.section}>
       <div className={styles.wrapper}>

@@ -1,9 +1,9 @@
 import React from "react";
-import styles from "./Section-2.module.css";
+import styles from "./AboutUs.module.css";
 import Image from "next/image";
 import Logo from "/public/images/Logo.png";
 
-export default function Section2({ aboutRef }) {
+export default function AboutUs({ aboutRef }) {
   return (
     <section className={styles.section} ref={aboutRef}>
       <div className={styles.wrapper}>

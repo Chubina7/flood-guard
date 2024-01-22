@@ -1,8 +1,8 @@
 import React from "react";
-import styles from "./Section-1.module.css";
+import styles from "./Services.module.css";
 import Card from "./card/Card";
 
-export default function Section1() {
+export default function Services() {
   return (
     <section className={styles.section}>
       <div className={styles.wrapper}>
