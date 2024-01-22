@@ -15,7 +15,7 @@ export default function GetStarted({ onClick }) {
         <div className={styles.imgBg}>
           <Image
             src={Hero}
-            width={250}
+            width={300}
             className={styles.heroImage}
             alt="hero-image"
           />

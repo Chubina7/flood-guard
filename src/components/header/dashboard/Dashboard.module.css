@@ -1,5 +1,4 @@
 .wrapper {
-  color: var(--main-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -7,16 +6,78 @@
   cursor: pointer;
 }
 
-.wrapper:hover {
-  color: var(--secondary-color);
-}
-
 .loginStatus {
+  color: var(--main-color);
   display: none;
+}
+.loginStatus:hover {
+  color: var(--secondary-color);
 }
 
 @media screen and (min-width: 768px) {
   .loginStatus {
     display: flex;
   }
+}
+
+/* ///////////// */
+.popUpOverlay {
+  background-color: black;
+  opacity: 50%;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+}
+
+.popUpSidebar {
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: white;
+  padding: 15px 10px;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+}
+/* user */
+.userBar {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 5px;
+  cursor: pointer;
+  opacity: 60%;
+  transition: var(--transition);
+}
+.userBar:hover {
+  opacity: 100%;
+}
+
+.popUpMenu {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-direction: column;
+  gap: 20px;
+}
+.listItem {
+  opacity: 60%;
+  color: var(--main-color);
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 2px solid transparent;
+  transition: var(--transition);
+  padding: 0 10px;
+  cursor: pointer;
+}
+.active {
+  opacity: 100%;
+  color: var(--main-color);
+  border-right: 2px solid var(--main-color);
 }
