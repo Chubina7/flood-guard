@@ -1,7 +1,7 @@
 import { Noto_Sans_Georgian } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/header/Header'
-import Footer from '@/components/footer/Footer'
+import AuthProvider from '@/components/session/AuthProvider'
 
 const notoSansGeorgian = Noto_Sans_Georgian(
   {
@@ -17,11 +17,12 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={notoSansGeorgian.className}>
-        <Header />
-        {children}
-        {/* <Footer /> */}
-      </body>
+      <AuthProvider>
+        <body className={notoSansGeorgian.className}>
+          <Header />
+          {children}
+        </body>
+      </AuthProvider>
     </html>
   )
 }

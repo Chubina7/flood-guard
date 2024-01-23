@@ -1,0 +1,83 @@
+.main {
+  width: 100%;
+  max-width: var(--max-width);
+  padding: var(--padding);
+  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.main hr {
+  width: 100%;
+  border: 1px solid var(--secondary-color);
+  border-radius: 3px;
+  margin: 20px 0;
+}
+
+.main h1 {
+  font-size: 24px;
+  color: var(--main-color);
+  width: 100%;
+  text-align: center;
+}
+
+.main button {
+  background-color: transparent;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  border-radius: 50px;
+  padding: 5px 10px;
+  width: 100%;
+  max-width: 768px;
+  margin-top: 15px;
+  font-family: inherit;
+  transition: var(--transition);
+  text-align: left;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+}
+.main button:hover {
+  cursor: pointer;
+  background-color: var(--secondary-color);
+  color: white;
+}
+.loginLogos {
+  height: 100%;
+}
+
+.main form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+  max-width: 768px;
+  margin-top: 20px;
+}
+
+.main form input {
+  font-size: 16px;
+  padding: 5px 10px;
+  text-align: center;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  border-radius: 3px;
+  width: 100%;
+}
+.main form input:focus {
+  outline: none;
+}
+
+.main form button {
+  background-color: var(--main-color);
+  color: white;
+  border: none;
+  text-align: center;
+  padding: 10px;
+  border-radius: 3px;
+}
+.main form button:hover {
+  border-radius: 50px;
+}

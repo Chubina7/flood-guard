@@ -50,11 +50,27 @@
   align-items: center;
   margin-top: 5px;
   cursor: pointer;
+  gap: 10px;
   opacity: 60%;
   transition: var(--transition);
 }
 .userBar:hover {
   opacity: 100%;
+}
+.userBarActive {
+  opacity: 100%;
+}
+
+.logOutBtn {
+  width: 100%;
+  text-align: center;
+  margin-top: 15px;
+  opacity: 60%;
+  transition: var(--transition);
+}
+.logOutBtn:hover {
+  opacity: 100%;
+  cursor: pointer;
 }
 
 .popUpMenu {
