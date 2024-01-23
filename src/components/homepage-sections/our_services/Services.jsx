@@ -7,10 +7,10 @@ export default function Services({ id }) {
     <section className={styles.section} id={id}>
       <div className={styles.wrapper}>
         <h1 className={styles.heading}>აირჩიე</h1>
-        <p className={styles.description}>რეგულარული ან პრემიუმი</p>
+        <p className={styles.description}>სტანდარტული ან პრემიუმი</p>
         <div className={styles.cards}>
           <Card
-            name={"რეგულარული"}
+            name={"სტანდარტული"}
             price={"0.00"}
             description={"აღწერა"}
             benefitList={["ბენეფიტი", "ბენეფიტი", "ბენეფიტი"]}

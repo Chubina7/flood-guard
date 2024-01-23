@@ -7,17 +7,18 @@ export default function AboutUs({ id }) {
   return (
     <section className={styles.section} id={id}>
       <div className={styles.wrapper}>
-        <h1>ვინ ვართ ჩვენ</h1>
+        <h1>შესახებ</h1>
         <div className={styles.imgBg}>
           <Image src={Logo} className={styles.img} alt="company-logo" />
         </div>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident
-          veritatis placeat corrupti pariatur accusamus vero, quibusdam ipsa
-          earum atque, eaque mollitia recusandae officiis porro assumenda
-          quaerat sunt nulla. Iusto fugit repellat ex consequatur maxime ullam,
-          libero voluptatem, voluptas error molestiae in provident? Nesciunt vel
-          autem id fugit distinctio in excepturi.
+          <strong>FloodGuard</strong> შენი უსაფრთოების მცველი წყალდიდობისას -
+          რეალურ დროში სწრაფი და ზუსტი ინფორმაციით.
+          <br />
+          <br />
+          ეს არის წყალდიდობის მონიტორინგის სისტემა, რომელიც დაუყოვნებლივ
+          აცნობებს მოსახლეობას ინფორმაციას წყალდიდობასთან დაკავშირებული საფრთხის
+          შესახებ.
         </p>
       </div>
     </section>
