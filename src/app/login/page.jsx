@@ -52,7 +52,6 @@ export default function page() {
       <hr />
       <h1>ან</h1>
       <button className={styles.googleBtn} onClick={() => signIn("google")}>
-        {/* დასამატებელია გამოსვლის ღილაკი */}
         <Image
           src={GoogleLogo}
           alt="google"

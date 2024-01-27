@@ -51,7 +51,7 @@ export default function Dashboard() {
       {sideBar && (
         <>
           <div className={styles.popUpOverlay} onClick={sideBarHandler}></div>
-          <sidebar className={styles.popUpSidebar}>
+          <div className={styles.popUpSidebar}>
             <Link
               href={
                 session.status === "authenticated" ? "/user_profile" : "/login"
@@ -109,7 +109,7 @@ export default function Dashboard() {
                 );
               })}
             </ul>
-          </sidebar>
+          </div>
         </>
       )}
     </>
