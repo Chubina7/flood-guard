@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./GetStarted.module.css";
 import Image from "next/image";
-import Hero from "/public/images/hero.png";
+import Hero from "/images/hero.png";
 import Button from "../../button/Button";
 
 export default function GetStarted({ onClick, id }) {
