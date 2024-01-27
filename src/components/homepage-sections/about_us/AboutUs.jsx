@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./AboutUs.module.css";
 import Image from "next/image";
-import Logo from "public/images/Logo.png";
+import Logo from "/public/images/Logo.png";
 
 export default function AboutUs({ id }) {
   return (

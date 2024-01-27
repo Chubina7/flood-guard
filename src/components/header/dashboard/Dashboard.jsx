@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import styles from "./Dashboard.module.css";
 import UserImgIcon from "./userImgIcon/UserImgIcon";
 
-import userImg from "public/svg/incognitoUser.svg";
+import userImg from "/public/svg/incognitoUser.svg";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { signOut, useSession } from "next-auth/react";

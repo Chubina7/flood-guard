@@ -4,8 +4,8 @@ import React from "react";
 import styles from "./page.module.css";
 import Image from "next/image";
 
-import FBLogo from "public/images/fbLogo.png";
-import GoogleLogo from "public/images/googleLogo.png";
+import FBLogo from "/public/images/fbLogo.png";
+import GoogleLogo from "/public/images/googleLogo.png";
 import { signIn } from "next-auth/react";
 
 export default function page() {
