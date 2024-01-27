@@ -4,8 +4,8 @@ import React, { useState } from "react";
 import styles from "./Card.module.css";
 import Image from "next/image";
 // Photos
-import WhiteDoneSvg from "/svg/whiteDone.svg";
-import BlueDoneSvg from "/svg/BlueDone.svg";
+import WhiteDoneSvg from "/public/svg/whiteDone.svg";
+import BlueDoneSvg from "/public/svg/BlueDone.svg";
 
 export default function Card({ name, price, description, benefitList }) {
   const [isHovered, setIsHovered] = useState(false);
