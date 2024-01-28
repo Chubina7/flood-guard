@@ -10,7 +10,7 @@ import { signOut, useSession } from "next-auth/react";
 
 import userImg from "/public/svg/incognitoUser.svg";
 import MenuSVG from "/public/svg/menu.svg";
-import LoadingSVG from "/public/svg/loading.svg"
+import LoadingSVG from "/public/svg/loading.svg";
 
 const navRoutes = [
   { id: 0, title: "მთავარი", to: "getStarted" },
@@ -59,7 +59,7 @@ export default function Dashboard() {
           />
         )}
       </div>
-      {/* Popup */}
+
       {sideBar && (
         <>
           <div className={styles.popUpOverlay} onClick={sideBarHandler}></div>
@@ -106,21 +106,31 @@ export default function Dashboard() {
             />
             <ul className={styles.popUpMenu}>
               {navRoutes.map((item) => {
-                return (
-                  <ReactLink
-                    activeClass={styles.listItem_active}
-                    spy={true}
-                    to={item.to}
-                    smooth={true}
-                    offset={-60}
-                    duration={500}
-                    onClick={sideBarHandler}
-                  >
-                    <li key={item.id} className={styles.listItem}>
-                      {item.title}
-                    </li>
-                  </ReactLink>
-                );
+                if (pathName === "/") {
+                  return (
+                    <ReactLink
+                      activeClass={styles.listItem_active}
+                      spy={true}
+                      to={item.to}
+                      smooth={true}
+                      offset={-60}
+                      duration={500}
+                      onClick={sideBarHandler}
+                    >
+                      <li key={item.id} className={styles.listItem}>
+                        {item.title}
+                      </li>
+                    </ReactLink>
+                  );
+                } else if (item.title === "მთავარი") {
+                  return (
+                    <Link href={"/"}>
+                      <li key={item.id} className={styles.listItem}>
+                        {item.title}
+                      </li>
+                    </Link>
+                  );
+                }
               })}
             </ul>
           </div>

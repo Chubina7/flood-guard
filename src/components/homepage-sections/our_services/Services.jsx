@@ -6,23 +6,34 @@ export default function Services({ id }) {
   return (
     <section className={styles.section} id={id}>
       <div className={styles.wrapper}>
-        <h1 className={styles.heading}>აირჩიე</h1>
-        <p className={styles.description}>სტანდარტული ან პრემიუმი</p>
         <div className={styles.cards}>
           <Card
             key={1}
             name={"სტანდარტული"}
             price={"0.00"}
-            description={"აღწერა"}
-            benefitList={["ბენეფიტი", "ბენეფიტი", "ბენეფიტი"]}
+            description={
+              "აკონტროლე ტემპერატურა და ტენიანობა კონკრეტული ადგილის მიხედვით და გაიგე ინფორმაცია მოსალოდნელი საფრთხის შესახებ"
+            }
+            benefitList={[
+              "ტემპერატურის კონტროლი",
+              "ტენიანობის კონტროლი",
+              "ლაივ რუკა",
+            ]}
             routeName={"/standard_subscription"}
           />
           <Card
             key={2}
             name={"პრემიუმი"}
             price={"29.99"}
-            description={"აღწერა"}
-            benefitList={["ბენეფიტი", "ბენეფიტი", "ბენეფიტი"]}
+            description={
+              "აკონტროლე ტემპერატურა და ტენიანობა კონკრეტული ადგილის მიხედვით და საფრთხის განვითარების ეტაპების შესახებ მიიღე დროული ინფორაცია შეტყობინების სახით"
+            }
+            benefitList={[
+              "ტემპერატურის კონტროლი",
+              "ტენიანობის კონტროლი",
+              "ლაივ რუკა",
+              "სამ ეტაპიანი გაფრთხილების სიტემა",
+            ]}
             routeName={"/premium_subscription"}
           />
         </div>

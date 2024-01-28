@@ -1,9 +1,8 @@
 "use client";
 
+import { Link as ReactLink, animateScroll as scroll } from "react-scroll";
 import React from "react";
 import styles from "./GetStarted.module.css";
-import Image from "next/image";
-import Hero from "/public/images/hero.png";
 import Button from "../../button/Button";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
@@ -16,24 +15,20 @@ export default function GetStarted({ onClick, id }) {
     <section className={styles.section} id={id}>
       <div className={styles.wrapper}>
         <div className={styles.textArea}>
-          <h1 className={styles.title}>უსაფრთხოების ჭკვიანი გადაწყვეტა</h1>
-          <Button
-            title={"Get Started"}
+          <h1 className={styles.title}>Smart solutions for safety</h1>
+          <ReactLink
+            to={"services"}
+            smooth={true}
+            offset={-60}
+            duration={500}
             onClick={() => {
               if (session.status === "unauthenticated") router.push("/login");
-              if (session.status === "authenticated")
-                router.push("/services");
             }}
-          />
+          >
+            <Button title={"Get Started"} />
+          </ReactLink>
         </div>
-        <div className={styles.imgBg}>
-          <Image
-            src={Hero}
-            width={300}
-            className={styles.heroImage}
-            alt="hero-image"
-          />
-        </div>
+        <div className={styles.imgBg}></div>
       </div>
     </section>
   );

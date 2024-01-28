@@ -62,7 +62,10 @@ export default function UserPage() {
           <div className={styles.dataContainer}>
             <h2>მონაცემები</h2>
             <p>ტემპერატურა არის {data.Temperature}°</p>
-            <p>ტენიანობა არის {data.Humidity}°</p>
+            <p>
+              ტენიანობა არის {data.Humidity}{" "}
+              <span style={{ fontSize: "10px" }}>mm</span>
+            </p>
           </div>
 
           <div className={styles.subscribtionContainer}>
