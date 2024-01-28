@@ -5,8 +5,18 @@ import Image from "next/image";
 // Photos
 import WhiteDoneSvg from "/public/svg/WhiteDone.svg";
 import BlueDoneSvg from "/public/svg/BlueDone.svg";
+import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 
-export default function Card({ name, price, description, benefitList }) {
+export default function Card({
+  name,
+  price,
+  description,
+  benefitList,
+  routeName,
+}) {
+  const session = useSession();
+  const router = useRouter();
   const [isHovered, setIsHovered] = useState(false);
   const DoneSvg = isHovered ? BlueDoneSvg : WhiteDoneSvg;
 
@@ -15,6 +25,10 @@ export default function Card({ name, price, description, benefitList }) {
       className={styles.card}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onClick={() => {
+        if (session.status === "authenticated") router.push(routeName);
+        if (session.status === "unauthenticated") router.push("/login");
+      }}
     >
       <h3>{name}</h3>
       <h1 className={styles.price}>

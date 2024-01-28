@@ -15,6 +15,10 @@
   align-items: center;
   gap: 10px;
 }
+.userImage {
+  border-radius: 50px;
+  object-fit: cover;
+}
 .userBarText {
   display: flex;
   justify-content: center;

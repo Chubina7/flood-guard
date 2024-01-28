@@ -10,16 +10,20 @@ export default function Services({ id }) {
         <p className={styles.description}>სტანდარტული ან პრემიუმი</p>
         <div className={styles.cards}>
           <Card
+            key={1}
             name={"სტანდარტული"}
             price={"0.00"}
             description={"აღწერა"}
             benefitList={["ბენეფიტი", "ბენეფიტი", "ბენეფიტი"]}
+            routeName={"/standard_subscription"}
           />
           <Card
+            key={2}
             name={"პრემიუმი"}
             price={"29.99"}
             description={"აღწერა"}
             benefitList={["ბენეფიტი", "ბენეფიტი", "ბენეფიტი"]}
+            routeName={"/premium_subscription"}
           />
         </div>
       </div>

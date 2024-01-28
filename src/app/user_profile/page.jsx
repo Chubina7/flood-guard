@@ -9,6 +9,7 @@ import styles from "./page.module.css";
 
 // Photo source import
 import IncognitoUser from "/public/svg/incognitoUser.svg";
+// import IncognitoUser from "/public/images/user-profile-pic.jpg";
 
 export default function UserPage() {
   const session = useSession();
@@ -43,6 +44,7 @@ export default function UserPage() {
               width={70}
               height={70}
               alt="user-profile-image"
+              className={styles.userImage}
             />
             <div className={styles.userBarText}>
               <h1>

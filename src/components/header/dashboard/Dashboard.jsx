@@ -4,11 +4,13 @@ import { Link as ReactLink, animateScroll as scroll } from "react-scroll";
 import React, { useEffect, useState } from "react";
 import styles from "./Dashboard.module.css";
 import UserImgIcon from "./userImgIcon/UserImgIcon";
-
-import userImg from "/public/svg/incognitoUser.svg";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { signOut, useSession } from "next-auth/react";
+
+import userImg from "/public/svg/incognitoUser.svg";
+import MenuSVG from "/public/svg/menu.svg";
+import LoadingSVG from "/public/svg/loading.svg"
 
 const navRoutes = [
   { id: 0, title: "მთავარი", to: "getStarted" },
@@ -42,10 +44,20 @@ export default function Dashboard() {
   return (
     <>
       <div className={styles.wrapper}>
-        <UserImgIcon
-          img={session.status === "authenticated" ? loginedUserImg : userImg}
-          setterFunction={sideBarHandler}
-        />
+        {pathName === "/user_profile" ? (
+          <UserImgIcon img={MenuSVG} setterFunction={sideBarHandler} />
+        ) : (
+          <UserImgIcon
+            img={
+              session.status === "authenticated"
+                ? loginedUserImg
+                : session.status === "loading"
+                ? LoadingSVG
+                : userImg
+            }
+            setterFunction={sideBarHandler}
+          />
+        )}
       </div>
       {/* Popup */}
       {sideBar && (
@@ -82,7 +94,9 @@ export default function Dashboard() {
               <p className={styles.logOutBtn} onClick={() => signOut()}>
                 გასვლა
               </p>
-            ) : <></>}
+            ) : (
+              <></>
+            )}
             <hr
               style={{
                 margin: "20px 0",

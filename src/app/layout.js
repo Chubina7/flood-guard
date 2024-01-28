@@ -2,6 +2,7 @@ import { Noto_Sans_Georgian } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/header/Header'
 import AuthProvider from '@/components/session/AuthProvider'
+import Head from 'next/head'
 
 const notoSansGeorgian = Noto_Sans_Georgian(
   {
