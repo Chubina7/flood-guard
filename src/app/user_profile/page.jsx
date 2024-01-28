@@ -3,16 +3,19 @@
 import { get, ref } from "firebase/database";
 import { dataBase } from "../firebaseConfig";
 import { useSession } from "next-auth/react";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Image from "next/image";
 import styles from "./page.module.css";
 
 // Photo source import
 import IncognitoUser from "/public/svg/incognitoUser.svg";
+import { SubscriptionContext } from "@/context/subscriptionCtx/SubscriptionCtx";
+import Link from "next/link";
 // import IncognitoUser from "/public/images/user-profile-pic.jpg";
 
 export default function UserPage() {
   const session = useSession();
+  const subscribeCtx = useContext(SubscriptionContext);
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState({});
 
@@ -23,12 +26,6 @@ export default function UserPage() {
       setIsLoading(false);
     });
   }, []);
-
-  // if (session.status === "authenticated") console.log(session.data.user);
-  // if (session.status === "unauthenticated") console.log(session.status);
-  // if (session.status === "loading") console.log(session.status);
-
-  // console.log("დატა", data);
 
   return (
     <>
@@ -47,13 +44,13 @@ export default function UserPage() {
               className={styles.userImage}
             />
             <div className={styles.userBarText}>
-              <h1>
-                Hello,{" "}
+              <h2>
+                გამარჯობა,{" "}
                 {session.status === "authenticated"
-                  ? session.data.user?.name
+                  ? session.data.user?.name?.split(" ")[0]
                   : "user"}
                 !
-              </h1>
+              </h2>
               <p>
                 {session.status === "authenticated"
                   ? session.data.user?.email
@@ -63,8 +60,33 @@ export default function UserPage() {
           </div>
 
           <div className={styles.dataContainer}>
-            <p>Temperature is {data.Temperature}°</p>
-            <p>Humidity is {data.Humidity}°</p>
+            <h2>მონაცემები</h2>
+            <p>ტემპერატურა არის {data.Temperature}°</p>
+            <p>ტენიანობა არის {data.Humidity}°</p>
+          </div>
+
+          <div className={styles.subscribtionContainer}>
+            <h2>თქვენი პაკეტი</h2>
+            {subscribeCtx.subscribed ? (
+              <p>{subscribeCtx.subscriptionType}</p>
+            ) : (
+              <>
+                <i>თქვენ ჯერ არ გაქვს შეძენილი პაკეტი</i>
+                <Link href={"/services"}>
+                  <button>ახლავე ყიდვა</button>
+                </Link>
+              </>
+            )}
+          </div>
+          <div>
+            {/* {subscribeCtx.subscribed ? (
+              <>
+                <p>Subscribed</p>
+                <p>{subscribeCtx.subscriptionType}</p>
+              </>
+            ) : (
+              <p>not Subscribed</p>
+            )} */}
           </div>
         </main>
       ) : (

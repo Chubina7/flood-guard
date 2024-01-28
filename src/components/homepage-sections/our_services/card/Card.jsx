@@ -26,7 +26,7 @@ export default function Card({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={() => {
-        if (session.status === "authenticated") router.push(routeName);
+        if (session.status === "authenticated") router.push(`/services/${routeName}`);
         if (session.status === "unauthenticated") router.push("/login");
       }}
     >

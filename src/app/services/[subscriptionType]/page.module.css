@@ -1,0 +1,33 @@
+.main {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: var(--padding);
+}
+
+.buyBtn {
+  border: none;
+  background-color: var(--main-color);
+  border-radius: 50px;
+  padding: 10px 20px;
+  font-family: inherit;
+  color: white;
+  transition: var(--transition);
+}
+.buyBtn:hover {
+  background-color: var(--secondary-color);
+  cursor: pointer;
+}
+.buyBtnInActive {
+  opacity: 50%;
+  pointer-events: none;
+}
+
+.status {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

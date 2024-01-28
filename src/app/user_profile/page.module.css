@@ -8,6 +8,11 @@
   flex-direction: column;
   padding: var(--padding);
 }
+.main p,
+.main i {
+  font-size: 14px;
+}
+
 .userBar {
   width: 100%;
   display: flex;
@@ -28,11 +33,16 @@
 .userBar h1 {
   font-size: 28px;
 }
-.userBarText p {
-  font-size: 13px;
-}
 
 .dataContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.subscribtionContainer {
   width: 100%;
   display: flex;
   justify-content: center;
