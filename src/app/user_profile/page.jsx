@@ -9,94 +9,104 @@ import styles from "./page.module.css";
 import { SubscriptionContext } from "@/context/subscriptionCtx/SubscriptionCtx";
 import Link from "next/link";
 import { ToastContainer } from "react-toastify";
-import alertSender from "@/functions/alertSender";
 
 // Photo source import
 import IncognitoUser from "/public/svg/incognitoUser.svg";
+import premiumAlertSystem from "@/functions/premiumAlertSystem";
 
 export default function UserPage() {
-  const session = useSession();
   const subscribeCtx = useContext(SubscriptionContext);
-  const [isLoading, setIsLoading] = useState(true);
-  const [data, setData] = useState({});
+  const session = useSession();
+  // const [isLoading, setIsLoading] = useState();
 
   useEffect(() => {
-    const dataRef = ref(dataBase, "DHT11");
+    const gettingData = () => {
+      console.log("შემოვიდა ფუნქციაში");
+      if (subscribeCtx.subscribed) {
+        const dataRef = ref(dataBase, "DHT11");
+        get(dataRef).then((snapshot) => {
+          premiumAlertSystem(snapshot.val().Humidity);
+          // setIsLoading(false);
+        });
+      }
+    };
+    gettingData();
 
-    get(dataRef).then((snapshot) => {
-      setData(snapshot.val());
-      setIsLoading(false);
-    });
+    const reFetching = setInterval(gettingData, 10000);
+    return () => clearInterval(reFetching);
   }, []);
 
-  useEffect(() => {
-    if (data !== undefined)
-      alertSender(
-        `ტენიანობა ${data.Humidity}; ტემპერატურა ${data.Temperature}`,
-        "info"
-      );
-  }, [data]);
-
   return (
-    <>
-      {!isLoading && data ? (
-        <main className={styles.main}>
-          <div className={styles.userBar}>
-            <Image
-              src={
-                session.status === "authenticated"
-                  ? session.data.user?.image
-                  : IncognitoUser
-              }
-              width={70}
-              height={70}
-              alt="user-profile-image"
-              className={styles.userImage}
-            />
-            <div className={styles.userBarText}>
-              <h2>
-                გამარჯობა,{" "}
-                {session.status === "authenticated"
-                  ? session.data.user?.name?.split(" ")[0]
-                  : "user"}
-                !
-              </h2>
-              <p>
-                {session.status === "authenticated"
-                  ? session.data.user?.email
-                  : "unauthenticated@mail.com"}
-              </p>
-            </div>
-          </div>
-
-          {/* <div className={styles.dataContainer}>
-            <h2>მონაცემები</h2>
-            <p>ტემპერატურა არის {data.Temperature}°</p>
+    <main className={styles.main}>
+      {session.status === "authenticated" && (
+        <div className={styles.userBar}>
+          <Image
+            src={
+              session.status === "authenticated"
+                ? session.data.user?.image
+                : IncognitoUser
+            }
+            width={70}
+            height={70}
+            alt="user-profile-image"
+            className={styles.userImage}
+          />
+          <div className={styles.userBarText}>
+            <h2>
+              გამარჯობა,{" "}
+              {session.status === "authenticated"
+                ? session.data.user?.name?.split(" ")[0]
+                : "user"}
+              !
+            </h2>
             <p>
-              ტენიანობა არის {data.Humidity}{" "}
-              <span style={{ fontSize: "10px" }}>mm</span>
+              {session.status === "authenticated"
+                ? session.data.user?.email
+                : "unauthenticated@mail.com"}
             </p>
-          </div> */}
-
-          <div className={styles.subscribtionContainer}>
-            <h2>თქვენი პაკეტი</h2>
-            {subscribeCtx.subscribed ? (
-              <p>{subscribeCtx.subscriptionType}</p>
-            ) : (
-              <>
-                <i>თქვენ ჯერ არ გაქვს შეძენილი პაკეტი</i>
-                <Link href={"/services"}>
-                  <button>ახლავე ყიდვა</button>
-                </Link>
-              </>
-            )}
           </div>
-        </main>
-      ) : (
-        <p>Loading...</p>
+        </div>
       )}
+
+      <div className={styles.dataContainer}>
+        {subscribeCtx.subscriptionType === "სტანდარტული" ? (
+          <>
+            {/* <h2>მონაცემები</h2>
+              <p>ტემპერატურა არის {data}°</p>
+              <p>
+                ტენიანობა არის {data}{" "}
+                <span style={{ fontSize: "10px" }}>mm</span>
+              </p> */}
+            <p>კონტენტი რომელიც გამოვა სტანდარტულზე</p>
+            <p>კონტენტი რომელიც გამოვა სტანდარტულზე</p>
+            <p>კონტენტი რომელიც გამოვა სტანდარტულზე</p>
+          </>
+        ) : (
+          subscribeCtx.subscriptionType === "პრემიუმი" && (
+            <>
+              <p>კონტენტი რომელიც გამოვა პრემიუმზე</p>
+              <p>კონტენტი რომელიც გამოვა პრემიუმზე</p>
+              <p>კონტენტი რომელიც გამოვა პრემიუმზე</p>
+            </>
+          )
+        )}
+      </div>
+
+      <div className={styles.subscribtionContainer}>
+        <h2>თქვენი პაკეტი</h2>
+        {subscribeCtx.subscribed ? (
+          <p>{subscribeCtx.subscriptionType}</p>
+        ) : (
+          <>
+            <i>თქვენ ჯერ არ გაქვთ პაკეტი შეძენილი</i>
+            <Link href={"/"}>
+              <button>ახლავე ყიდვა</button>
+            </Link>
+          </>
+        )}
+      </div>
+
       <ToastContainer />
-      {/* <button onClick={sendAlert}>trigger</button> */}
-    </>
+    </main>
   );
 }
