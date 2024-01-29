@@ -20,12 +20,13 @@ export default function UserPage() {
   // const [isLoading, setIsLoading] = useState();
 
   useEffect(() => {
+    console.log("გაეშვა იუზ ეფექტი");
     const gettingData = () => {
-      console.log("შემოვიდა ფუნქციაში");
+      console.log("გაეშვა ფუნქცია");
       if (subscribeCtx.subscribed) {
         const dataRef = ref(dataBase, "DHT11");
         get(dataRef).then((snapshot) => {
-          premiumAlertSystem(snapshot.val().Humidity);
+          premiumAlertSystem(snapshot.val());
           // setIsLoading(false);
         });
       }
