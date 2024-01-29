@@ -7,6 +7,8 @@ import WhiteDoneSvg from "/public/svg/WhiteDone.svg";
 import BlueDoneSvg from "/public/svg/BlueDone.svg";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
+import alertSender from "@/functions/alertSender";
+import { ToastContainer } from "react-toastify";
 
 export default function Card({
   name,
@@ -26,8 +28,11 @@ export default function Card({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       onClick={() => {
-        if (session.status === "authenticated") router.push(`/services/${routeName}`);
-        if (session.status === "unauthenticated") router.push("/login");
+        if (session.status === "authenticated")
+          router.push(`/services/${routeName}`);
+        if (session.status === "unauthenticated") {
+          router.push("/login");
+        }
       }}
     >
       <h3>{name}</h3>

@@ -6,11 +6,13 @@ import { useSession } from "next-auth/react";
 import React, { useContext, useEffect, useState } from "react";
 import Image from "next/image";
 import styles from "./page.module.css";
+import { SubscriptionContext } from "@/context/subscriptionCtx/SubscriptionCtx";
+import Link from "next/link";
+import { ToastContainer } from "react-toastify";
+import alertSender from "@/functions/alertSender";
 
 // Photo source import
 import IncognitoUser from "/public/svg/incognitoUser.svg";
-import { SubscriptionContext } from "@/context/subscriptionCtx/SubscriptionCtx";
-import Link from "next/link";
 
 export default function UserPage() {
   const session = useSession();
@@ -20,11 +22,20 @@ export default function UserPage() {
 
   useEffect(() => {
     const dataRef = ref(dataBase, "DHT11");
+
     get(dataRef).then((snapshot) => {
       setData(snapshot.val());
       setIsLoading(false);
     });
   }, []);
+
+  useEffect(() => {
+    if (data !== undefined)
+      alertSender(
+        `ტენიანობა ${data.Humidity}; ტემპერატურა ${data.Temperature}`,
+        "info"
+      );
+  }, [data]);
 
   return (
     <>
@@ -58,14 +69,14 @@ export default function UserPage() {
             </div>
           </div>
 
-          <div className={styles.dataContainer}>
+          {/* <div className={styles.dataContainer}>
             <h2>მონაცემები</h2>
             <p>ტემპერატურა არის {data.Temperature}°</p>
             <p>
               ტენიანობა არის {data.Humidity}{" "}
               <span style={{ fontSize: "10px" }}>mm</span>
             </p>
-          </div>
+          </div> */}
 
           <div className={styles.subscribtionContainer}>
             <h2>თქვენი პაკეტი</h2>
@@ -80,20 +91,12 @@ export default function UserPage() {
               </>
             )}
           </div>
-          <div>
-            {/* {subscribeCtx.subscribed ? (
-              <>
-                <p>Subscribed</p>
-                <p>{subscribeCtx.subscriptionType}</p>
-              </>
-            ) : (
-              <p>not Subscribed</p>
-            )} */}
-          </div>
         </main>
       ) : (
         <p>Loading...</p>
       )}
+      <ToastContainer />
+      {/* <button onClick={sendAlert}>trigger</button> */}
     </>
   );
 }

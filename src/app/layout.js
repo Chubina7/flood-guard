@@ -2,9 +2,8 @@ import { Noto_Sans_Georgian } from 'next/font/google'
 import './globals.css'
 import Header from '@/components/header/Header'
 import AuthProvider from '@/components/session/AuthProvider'
-import Head from 'next/head'
 import SubscriptionCtx from '@/context/subscriptionCtx/SubscriptionCtx'
-import AlertSystem from '@/components/alertSystem/AlertSystem'
+import { ToastContainer } from 'react-toastify'
 
 const notoSansGeorgian = Noto_Sans_Georgian(
   {
@@ -25,8 +24,7 @@ export default function RootLayout({ children }) {
           <body className={notoSansGeorgian.className}>
             <Header />
             {children}
-
-            <AlertSystem />
+            <ToastContainer />
           </body>
         </SubscriptionCtx>
       </AuthProvider>

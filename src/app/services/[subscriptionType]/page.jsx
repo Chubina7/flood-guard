@@ -4,6 +4,8 @@ import React, { useContext } from "react";
 import styles from "./page.module.css";
 import { SubscriptionContext } from "@/context/subscriptionCtx/SubscriptionCtx";
 import { useRouter } from "next/navigation";
+import alertSender from "@/functions/alertSender";
+import { ToastContainer } from "react-toastify";
 
 const subscriptionTypes = [
   {
@@ -61,7 +63,7 @@ export default function Payment({ params }) {
                 onClick={() => {
                   subscribeCtx.setSubscribed(true);
                   subscribeCtx.setSubscriptionType(item.name);
-                  alert(`თქვენ შეიძინეთ პაკეტი ${item.name}`);
+                  alertSender(`თქვენ შეიძინეთ პაკეტი ${item.name}`, "success");
                 }}
               >
                 შეძენა
@@ -87,6 +89,7 @@ export default function Payment({ params }) {
           );
         }
       })}
+      <ToastContainer />
     </main>
   );
 }
