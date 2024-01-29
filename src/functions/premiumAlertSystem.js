@@ -10,7 +10,7 @@ const premiumAlertSystem = (rawData) => {
 
     if (rawHumidity !== prevHumidity || rawTemperature !== prevTemperature) {
         if (rawHumidity == 22 && rawTemperature == 23) {
-            message = "ერთი ქეისი ტესტი"
+            message = "ერთი ქეისის ტესტი"
         }
         prevHumidity = rawHumidity
         prevTemperature = rawTemperature

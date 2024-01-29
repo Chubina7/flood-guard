@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import styles from "./page.module.css";
 import { SubscriptionContext } from "@/context/subscriptionCtx/SubscriptionCtx";
 import { useRouter } from "next/navigation";
@@ -27,7 +27,7 @@ const subscriptionTypes = [
       "ტემპერატურის კონტროლი",
       "ტენიანობის კონტროლი",
       "ლაივ რუკა",
-      "სამ ეტაპიანი გაფრთხილების სიტემა",
+      "სამ ეტაპიანი გაფრთხილების სისტემა",
     ],
     routeName: "premium_subscription",
   },
@@ -41,7 +41,7 @@ export default function Payment({ params }) {
       {subscriptionTypes.map((item) => {
         if (item.routeName === params.subscriptionType) {
           return (
-            <>
+            <div className={styles.info}>
               <h1>{item.name}</h1>
               <h3>{item.price} ₾</h3>
               <p>{item.description}</p>
@@ -55,40 +55,37 @@ export default function Payment({ params }) {
               <button
                 className={
                   !subscribeCtx.subscribed
-                    ? // &&
-                      // item.name === subscribeCtx.subscriptionType
-                      styles.buyBtn
+                    ? styles.buyBtn
                     : `${styles.buyBtnInActive} ${styles.buyBtn}`
                 }
                 onClick={() => {
                   subscribeCtx.setSubscribed(true);
                   subscribeCtx.setSubscriptionType(item.name);
-                  alertSender(`თქვენ შეიძინეთ პაკეტი ${item.name}`, "success");
+                  alertSender(
+                    `თქვენ შეიძინეთ პაკეტი; დეტალები ნახეთ პირად გვერდზე`,
+                    "success"
+                  );
                 }}
               >
                 შეძენა
               </button>
-
-              {subscribeCtx.subscribed ? (
-                <div className={styles.status}>
-                  <h4>აქტიური სტატუსი: </h4>
-                  <div>
-                    <p>Subscribed</p>
-                    <p>{subscribeCtx.subscriptionType}</p>
-                  </div>
-                </div>
-              ) : (
-                <div className={styles.status}>
-                  <h4>აქტიური სტატუსი: </h4>
-                  <div>
-                    <p>Not Subscribed</p>
-                  </div>
-                </div>
-              )}
-            </>
+            </div>
           );
         }
       })}
+      {subscribeCtx.subscribed ? (
+        <div className={styles.status}>
+          <h4>აქტიური სტატუსი: </h4>
+          <div>
+            <p>Subscribed - {subscribeCtx.subscriptionType}</p>
+          </div>
+        </div>
+      ) : (
+        <div className={styles.status}>
+          <h4>აქტიური სტატუსი: </h4>
+          <p>Not Subscribed</p>
+        </div>
+      )}
       <ToastContainer />
     </main>
   );

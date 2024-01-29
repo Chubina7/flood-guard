@@ -69,6 +69,20 @@ export default function UserPage() {
         </div>
       )}
 
+      <div className={styles.subscribtionContainer}>
+        <h2>თქვენი პაკეტი</h2>
+        {subscribeCtx.subscribed ? (
+          <p>{subscribeCtx.subscriptionType}</p>
+        ) : (
+          <>
+            <i>თქვენ ჯერ არ გაქვთ პაკეტი შეძენილი</i>
+            <Link href={"/"}>
+              <button className={styles.buyNowBtn}>ახლავე ყიდვა</button>
+            </Link>
+          </>
+        )}
+      </div>
+
       <div className={styles.dataContainer}>
         {subscribeCtx.subscriptionType === "სტანდარტული" ? (
           <>
@@ -92,21 +106,6 @@ export default function UserPage() {
           )
         )}
       </div>
-
-      <div className={styles.subscribtionContainer}>
-        <h2>თქვენი პაკეტი</h2>
-        {subscribeCtx.subscribed ? (
-          <p>{subscribeCtx.subscriptionType}</p>
-        ) : (
-          <>
-            <i>თქვენ ჯერ არ გაქვთ პაკეტი შეძენილი</i>
-            <Link href={"/"}>
-              <button>ახლავე ყიდვა</button>
-            </Link>
-          </>
-        )}
-      </div>
-
       <ToastContainer />
     </main>
   );
