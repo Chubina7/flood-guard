@@ -4,6 +4,7 @@ import Header from '@/components/header/Header'
 import AuthProvider from '@/components/session/AuthProvider'
 import Head from 'next/head'
 import SubscriptionCtx from '@/context/subscriptionCtx/SubscriptionCtx'
+import AlertSystem from '@/components/alertSystem/AlertSystem'
 
 const notoSansGeorgian = Noto_Sans_Georgian(
   {
@@ -24,6 +25,8 @@ export default function RootLayout({ children }) {
           <body className={notoSansGeorgian.className}>
             <Header />
             {children}
+
+            <AlertSystem />
           </body>
         </SubscriptionCtx>
       </AuthProvider>

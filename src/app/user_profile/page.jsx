@@ -11,7 +11,6 @@ import styles from "./page.module.css";
 import IncognitoUser from "/public/svg/incognitoUser.svg";
 import { SubscriptionContext } from "@/context/subscriptionCtx/SubscriptionCtx";
 import Link from "next/link";
-// import IncognitoUser from "/public/images/user-profile-pic.jpg";
 
 export default function UserPage() {
   const session = useSession();
