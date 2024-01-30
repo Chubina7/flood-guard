@@ -1,11 +1,12 @@
 # Project for small startup
 FloodGuard is startup, which provides customers to get alerts about climate change.
----
-*NOTE: For the first demo, the web-page made, instead of application.*
----
+
+- *NOTE: For the first demo, the web-page made, instead of application.*
+- *For better UserExperience see the webpage using phone (or using developer tools inspect element)*
+
 Used **NEXT.JS framework** on top of **REACT** Library, and their hooks (useEffect, useContext, useState, useSession, NextAuth, Link tag, Image tag...)
 For serving the data, **Firebase** is used.
----
+
 ### Behaviour on the site
 - User must register first (for the demo, it is possible only using Google auth).
 - User sees the profile and his/her dashboard, where staticly he/she do not have any subscription.
