@@ -79,6 +79,22 @@ export default function Payment({ params }) {
           <div>
             <p>Subscribed - {subscribeCtx.subscriptionType}</p>
           </div>
+          <button
+            className={
+              !subscribeCtx.subscribed
+                ? `${styles.buyBtnInActive} ${styles.buyBtn}`
+                : styles.buyBtn
+            }
+            onClick={() => {
+              subscribeCtx.setSubscribed(false);
+              subscribeCtx.setSubscriptionType(null);
+              alertSender(`თქვენ წარმატებით გააუქმეთ გამოწერა`, "info");
+
+              console.log(subscribeCtx.subscriptionType);
+            }}
+          >
+            გაუქმება
+          </button>
         </div>
       ) : (
         <div className={styles.status}>
