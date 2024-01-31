@@ -9,26 +9,28 @@ const premiumAlertSystem = (rawData) => {
     let rawHumidity = rawData.Humidity
     let rawTemperature = rawData.Temperature
 
-    if (rawHumidity >= 100 && rawHumidity !== prevHumidity) {
+    // Check, if the data is changed or not
+    if (rawHumidity === prevHumidity && rawTemperature === prevTemperature) return null
+
+    // If any of the data changed, then return different type of messages
+    if (rawHumidity >= 100) {
         message = "მიიღე ზომები! სტიქიური მოვლენა გარდაუვალია! დატოვე ადგილი!"
         type = "warn"
         prevHumidity = rawHumidity
-    } else if (rawHumidity >= 90 && rawHumidity !== prevHumidity) {
+        prevTemperature = rawTemperature
+    } else if (rawHumidity >= 90) {
         message = "მობილიზდი! მდგომარეობა უარესდება!"
         type = "info"
         prevHumidity = rawHumidity
-    } else if (rawHumidity >= 60 && rawHumidity !== prevHumidity) {
+        prevTemperature = rawTemperature
+    } else if (rawHumidity >= 60) {
         message = "ყურადღება! უხვი ნალექის რაოდენობამ შესაძლოა წყალდიდობის საფრთხე შექმნას"
         type = "info"
         prevHumidity = rawHumidity
-    } else if (rawHumidity === prevHumidity) { // სატესტო ნოტიფიკაცია; რომ უფრო თვალსაჩინო იყოს კოდის მუშაობის სისტემატიურობა
-        message = `ტენიანობა არის ${rawHumidity}mm, ტემპერატურა კი ${rawTemperature}°`
-        type = "info"
-        prevHumidity = rawHumidity
+        prevTemperature = rawTemperature
     }
 
     return alertSender(message, type)
-
 }
 
 export default premiumAlertSystem
