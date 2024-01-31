@@ -62,8 +62,8 @@ export default function UserPage() {
                 ? session.data.user?.image
                 : IncognitoUser
             }
-            width={70}
-            height={70}
+            width={80}
+            height={80}
             alt="user-profile-image"
             className={styles.userImage}
           />

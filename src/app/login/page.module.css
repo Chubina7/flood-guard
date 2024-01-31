@@ -1,12 +1,14 @@
 .main {
   width: 100%;
-  max-width: var(--max-width);
+  min-height: 100vh;
+  /* max-width: var(--max-width); */
   padding: var(--padding);
   padding-top: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background-color: white;
 }
 .main hr {
   width: 100%;

@@ -7,6 +7,7 @@
   flex-direction: column;
   padding: var(--padding);
   gap: 30px;
+  padding-top: 30px;
 }
 .main p,
 .main i {
@@ -19,10 +20,12 @@
   justify-content: flex-start;
   align-items: center;
   gap: 10px;
+  color: white;
 }
 .userImage {
   border-radius: 50px;
   object-fit: cover;
+  border: 2px solid white;
 }
 .userBarText {
   display: flex;
@@ -45,6 +48,7 @@
   border-radius: 6px;
   padding: 20px 10px;
   gap: 20px;
+  color: var(--main-color);
 }
 
 .status {
@@ -53,6 +57,7 @@
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
+  color: var(--main-color);
 }
 
 .subscribtionContainer {
@@ -66,6 +71,7 @@
   border-radius: 6px;
   padding: 20px 10px;
   gap: 20px;
+  color: var(--main-color);
 }
 
 .buyNowBtn {
@@ -81,4 +87,3 @@
   cursor: pointer;
   background-color: var(--secondary-color);
 }
-
