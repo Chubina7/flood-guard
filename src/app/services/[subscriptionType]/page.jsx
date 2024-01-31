@@ -3,7 +3,6 @@
 import React, { useContext, useEffect } from "react";
 import styles from "./page.module.css";
 import { SubscriptionContext } from "@/context/subscriptionCtx/SubscriptionCtx";
-import { useRouter } from "next/navigation";
 import alertSender from "@/functions/alertSender";
 import { ToastContainer } from "react-toastify";
 
@@ -24,10 +23,10 @@ const subscriptionTypes = [
     description:
       "აკონტროლე ტემპერატურა და ტენიანობა კონკრეტული ადგილის მიხედვით და საფრთხის განვითარების ეტაპების შესახებ მიიღე დროული ინფორაცია შეტყობინების სახით",
     benefitList: [
-      "ტემპერატურის კონტროლი",
-      "ტენიანობის კონტროლი",
-      "ლაივ რუკა",
-      "სამ ეტაპიანი გაფრთხილების სისტემა",
+      "- ტემპერატურის კონტროლი",
+      "- ტენიანობის კონტროლი",
+      "- ლაივ რუკა",
+      "- სამ ეტაპიანი გაფრთხილების სისტემა",
     ],
     routeName: "premium_subscription",
   },
@@ -89,8 +88,6 @@ export default function Payment({ params }) {
               subscribeCtx.setSubscribed(false);
               subscribeCtx.setSubscriptionType(null);
               alertSender(`თქვენ წარმატებით გააუქმეთ გამოწერა`, "info");
-
-              console.log(subscribeCtx.subscriptionType);
             }}
           >
             გაუქმება
