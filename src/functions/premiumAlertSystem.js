@@ -13,17 +13,17 @@ const premiumAlertSystem = (rawData) => {
     if (rawHumidity === prevHumidity && rawTemperature === prevTemperature) return null
 
     // If any of the data changed, then return different type of messages
-    if (rawHumidity >= 100) {
-        message = "მიიღე ზომები! სტიქიური მოვლენა გარდაუვალია! დატოვე ადგილი!"
+    if (rawHumidity >= 10000) {
+        message = "დატოვე ადგილი! სტიქია გარდაუვალია!"
         type = "warn"
         prevHumidity = rawHumidity
         prevTemperature = rawTemperature
-    } else if (rawHumidity >= 90) {
+    } else if (rawHumidity >= 5000) {
         message = "მობილიზდი! მდგომარეობა უარესდება!"
         type = "info"
         prevHumidity = rawHumidity
         prevTemperature = rawTemperature
-    } else if (rawHumidity >= 60) {
+    } else if (rawHumidity >= 1000) {
         message = "ყურადღება! უხვი ნალექის რაოდენობამ შესაძლოა წყალდიდობის საფრთხე შექმნას"
         type = "info"
         prevHumidity = rawHumidity
